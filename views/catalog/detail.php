@@ -8,6 +8,8 @@ $this->title = $category->name;
     <div class="body-content">
         <div class="row">
             <h1 class="success"><?=$category->name?></h1>
+        </div>
+        <div class="row">
             <h3>Подкатегории:</h3>
             <?php foreach ($subcategories as $item) {?>
                 <div class="col-lg-4">
@@ -21,6 +23,9 @@ $this->title = $category->name;
                     <p><a class="btn btn-primary" href="/catalog/<?=$item->id?>">Подробнее</a></p>
                 </div>
             <?php } ?>
+        </div>
+        <div class="row">
+            <h3>Товары:</h3>
         </div>
     </div>
 </div>
