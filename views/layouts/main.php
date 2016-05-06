@@ -33,6 +33,15 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-right'],
+        'items' => [
+            ['label' => 'Добавить категорию', 'url' => ['/catalog/new']],
+            ['label' => 'Редактировать категории', 'url' => ['/site/about']],
+            ['label' => 'Добавить товар', 'url' => ['/site/about']],
+            ['label' => 'Редактировать товары', 'url' => ['/site/about']],
+        ],
+    ]);
     NavBar::end();
     ?>
 

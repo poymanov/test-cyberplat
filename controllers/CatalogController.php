@@ -38,4 +38,24 @@ class CatalogController extends Controller
 
 		return $this->render('detail',compact('category','subcategories','products'));
 	}
+
+	public function actionNew() {
+		$category = new Catalog;
+		
+		if($category->load(Yii::$app->request->post()) && $category->validate()) {
+			// Валидация прошла успешно,
+			// создаем новую категорию
+			$request = Yii::$app->request;
+			$category->name = $request->post('Catalog')['name'];
+			$category->parent_id = $request->post('Catalog')['parent_id'];
+			$category->save();
+
+			// Переадресация на главную страницу
+			$this->redirect('/');
+
+		} else {
+			// либо страница отображается первый раз, либо есть ошибка в данных
+            return $this->render('new', compact('category'));
+		}
+	}
 }
