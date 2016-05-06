@@ -43,7 +43,8 @@ $config = [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
-                'about' => 'site/about'
+                'about' => 'site/about',
+                'catalog/<id:\d+>' => 'catalog/detail',
             ],
         ],
         

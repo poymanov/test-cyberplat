@@ -2,13 +2,14 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Каталог';
+$this->title = $category->name;
 ?>
 <div class="site-index">
     <div class="body-content">
-        <h1>Категории товаров</h1>
         <div class="row">
-            <?php foreach ($catalog as $item) {?>
+            <h1 class="success"><?=$category->name?></h1>
+            <h3>Подкатегории:</h3>
+            <?php foreach ($subcategories as $item) {?>
                 <div class="col-lg-4">
                     <h3><?=$item->name ?></h3>
 
@@ -17,10 +18,9 @@ $this->title = 'Каталог';
                         ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                         fugiat nulla pariatur.</p>
 
-                    <p><a class="btn btn-default" href="/catalog/<?=$item->id?>">Подробнее</a></p>
+                    <p><a class="btn btn-primary" href="/catalog/<?=$item->id?>">Подробнее</a></p>
                 </div>
             <?php } ?>
         </div>
-
     </div>
 </div>
