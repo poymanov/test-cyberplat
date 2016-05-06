@@ -4,6 +4,6 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
-class Product extends ActiveRecord
+class Products extends ActiveRecord
 {
 }

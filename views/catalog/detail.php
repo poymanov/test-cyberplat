@@ -9,23 +9,37 @@ $this->title = $category->name;
         <div class="row">
             <h1 class="success"><?=$category->name?></h1>
         </div>
-        <div class="row">
-            <h3>Подкатегории:</h3>
-            <?php foreach ($subcategories as $item) {?>
-                <div class="col-lg-4">
-                    <h3><?=$item->name ?></h3>
+        <?php if($subcategories) {?>
+            <div class="row">
+                <h3>Подкатегории:</h3>
+                <?php foreach ($subcategories as $item) {?>
+                    <div class="col-lg-4">
+                        <h3><?=$item->name ?></h3>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                            fugiat nulla pariatur.</p>
 
-                    <p><a class="btn btn-primary" href="/catalog/<?=$item->id?>">Подробнее</a></p>
-                </div>
-            <?php } ?>
-        </div>
-        <div class="row">
-            <h3>Товары:</h3>
-        </div>
+                        <p><a class="btn btn-primary" href="/catalog/<?=$item->id?>">Подробнее</a></p>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+        <?php if($products) {?>
+            <div class="row">
+                <h3>Товары:</h3>
+                <?php foreach ($products as $item) {?>
+                    <div class="col-lg-4">
+                        <h3><?=$item->name ?></h3>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                            fugiat nulla pariatur.</p>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
     </div>
 </div>
