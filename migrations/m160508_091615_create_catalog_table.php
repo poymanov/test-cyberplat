@@ -16,7 +16,7 @@ class m160508_091615_create_catalog_table extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
             'parent_id' => $this->integer()
-        ]);
+        ],'CHARSET=utf8');
     }
 
     /**
