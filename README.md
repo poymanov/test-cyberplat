@@ -23,7 +23,7 @@
 
     git clone git@bitbucket.org:poymanov/mentor-blog-laravel.git
    
-2) Установить [https://getcomposer.org/](Composer) (если еще не установлен)
+2) Установить [Composer](https://getcomposer.org/) (если еще не установлен)
 
 3) Установить компоненты необходимые компоненты проекта для composer:
 
