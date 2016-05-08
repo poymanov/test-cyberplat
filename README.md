@@ -21,7 +21,7 @@
 
 1) Разместить файлы проекта в любой директории
 
-    git clone git@bitbucket.org:poymanov/mentor-blog-laravel.git
+    git clone https://github.com/poymanov/test-yii-catalog
    
 2) Установить [Composer](https://getcomposer.org/) (если еще не установлен)
 
