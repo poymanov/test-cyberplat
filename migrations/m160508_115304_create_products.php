@@ -22,7 +22,7 @@ class m160508_115304_create_products extends Migration
         $this->createIndex('category_id','products','category_id');
 
         // Добавляем внешний ключ
-        $this->addForeignKey('category_id','products','category_id','catalog','id','CASCADE','CASCADE');
+        $this->addForeignKey('category_id','products','category_id','catalog','id','SET NULL','CASCADE');
     }
 
     /**
