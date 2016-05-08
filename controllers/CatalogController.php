@@ -94,4 +94,29 @@ class CatalogController extends Controller
 		// Возвращаемся обратно на страницу управлени категориями
 		$this->redirect(Yii::$app->request->referrer);
 	}
+
+	public function actionUpdate($id) {
+		$category = Catalog::findOne($id);
+
+		// Если такой категории не найдено, редирект на предыдущую страницу
+		if ($category === null) {
+			$this->redirect(Yii::$app->request->referrer);
+		}
+		
+		if($category->load(Yii::$app->request->post()) && $category->validate()) {
+			// Валидация прошла успешно,
+			// создаем новую категорию
+			$request = Yii::$app->request;
+			$category->name = $request->post('Catalog')['name'];
+			$category->parent_id = $request->post('Catalog')['parent_id'];
+			$category->save();
+
+			// Переадресация на страницу управления категориями
+			$this->redirect('/catalog');
+
+		} else {
+			// либо страница отображается первый раз, либо есть ошибка в данных
+            return $this->render('update', compact('category'));
+		}
+	}
 }

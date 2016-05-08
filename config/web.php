@@ -46,6 +46,7 @@ $config = [
                 'about' => 'site/about',
                 'catalog/<id:\d+>' => 'catalog/detail',
                 'catalog/delete/<id>' => 'catalog/delete',
+                'catalog/update/<id>' => 'catalog/update',
             ],
         ],
         

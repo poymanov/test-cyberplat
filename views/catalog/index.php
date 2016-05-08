@@ -25,8 +25,12 @@ $this->title = 'Управление категориями';
 				<td><?php echo $category->id; ?></td>
 				<td><?php echo $category->name; ?></td>
 				<td><?php echo $category->getCategoryName(); ?></td>
-				<td></td>
-				<td><a href="/catalog/delete/<?php echo $category->id; ?>" class="glyphicon glyphicon-trash"></a></td>
+				<td>
+					<a href="/catalog/update/<?php echo $category->id; ?>" class="glyphicon glyphicon-pencil"></a>
+				</td>
+				<td>
+					<a href="/catalog/delete/<?php echo $category->id; ?>" class="glyphicon glyphicon-trash"></a>
+				</td>
 			</tr>
 		<?php } ?>
 	</table>	
