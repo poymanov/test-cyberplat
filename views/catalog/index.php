@@ -10,7 +10,7 @@ $this->title = 'Управление категориями';
 		Управление категориями
 	</h1>
 	<div>
-		<a href="#" class="categories-new btn btn-primary">Добавить новую</a>
+		<a href="/catalog/new" class="categories-new btn btn-primary">Добавить новую</a>
 	</div>	
 	<table class="table table-bordered categories-index">
 		<tr>
@@ -24,7 +24,7 @@ $this->title = 'Управление категориями';
 			<tr>
 				<td><?php echo $category->id; ?></td>
 				<td><?php echo $category->name; ?></td>
-				<td></td>
+				<td><?php echo $category->getCategoryName(1); ?></td>
 				<td></td>
 				<td></td>
 			</tr>
