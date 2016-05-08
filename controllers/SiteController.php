@@ -50,7 +50,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $catalog = Catalog::find()->all();
+        $catalog = Catalog::find()->where(['parent_id' => null])->all();
         return $this->render('index',compact('catalog'));
     }
 
