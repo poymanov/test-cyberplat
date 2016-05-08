@@ -80,11 +80,10 @@ class CatalogController extends Controller
 			// Удаляем категорию
 			$category->delete();
 
-			// Очищаем parent_id у дочерних категорий
-			$childrens = Catalog::find()
-					->where(['parent_id' => $id])
-					->all();
+			// Находим все дочерние категории
+			$childrens = Catalog::findAll(['parent_id' => $id]);
 
+			// Очищаем parent_id
 			foreach ($childrens as $children) {
 				$children->parent_id = "";
 				$children->save();
