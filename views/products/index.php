@@ -26,7 +26,7 @@ $this->title = 'Управление товарами';
 				<td><?php echo $product->name; ?></td>
 				<td><?php //echo $product->getCategoryName(); ?></td>
 				<td>
-					<a href="/catalog/update/<?php echo $product->id; ?>" class="glyphicon glyphicon-pencil"></a>
+					<a href="/products/update/<?php echo $product->id; ?>" class="glyphicon glyphicon-pencil"></a>
 				</td>
 				<td>
 					<a href="/catalog/delete/<?php echo $product->id; ?>" class="glyphicon glyphicon-trash"></a>
