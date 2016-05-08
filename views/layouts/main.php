@@ -37,7 +37,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Управление категориями', 'url' => ['/catalog']],
-            ['label' => 'Управление товарами', 'url' => ['/site/about']]
+            ['label' => 'Управление товарами', 'url' => ['/products']]
         ],
     ]);
     NavBar::end();
