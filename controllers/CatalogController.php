@@ -17,7 +17,7 @@ class CatalogController extends Controller
 
 		// Если категория не найдена, возвращаемся на главную страницу
 		if($category === null) {
-			$this->redirect(Yii::$app->request->referrer);
+			throw new \yii\web\HttpException('404','Категория не существует');
 		}
 
 		// Данные по подкатегориям категории
@@ -74,9 +74,11 @@ class CatalogController extends Controller
 		// Находим по id категорию
 		$category = Catalog::findOne($id);
 
-		// Если категория найдена
-		if ($category !== null) {
-			
+		if ($category === null) {			
+			// Если категория не найдена, возвращаем 404
+			throw new \yii\web\HttpException('404','Категория отсутствует. Удаление невозможно.');
+		} else {
+			// Если категория найдена	
 			// Удаляем категорию
 			$category->delete();
 
@@ -97,9 +99,9 @@ class CatalogController extends Controller
 	public function actionUpdate($id) {
 		$category = Catalog::findOne($id);
 
-		// Если такой категории не найдено, редирект на предыдущую страницу
-		if ($category === null) {
-			$this->redirect(Yii::$app->request->referrer);
+		if ($category === null) {			
+			// Если категория не найдена, возвращаем 404
+			throw new \yii\web\HttpException('404','Категория отсутствует. Изменение невозможно.');
 		}
 		
 		if($category->load(Yii::$app->request->post()) && $category->validate()) {
