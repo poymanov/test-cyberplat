@@ -48,6 +48,7 @@ $config = [
                 'catalog/delete/<id>' => 'catalog/delete',
                 'catalog/update/<id>' => 'catalog/update',
                 'products/update/<id>' => 'products/update',
+                'products/delete/<id>' => 'products/delete',
             ],
         ],
         

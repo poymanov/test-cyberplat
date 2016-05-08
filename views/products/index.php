@@ -29,7 +29,7 @@ $this->title = 'Управление товарами';
 					<a href="/products/update/<?php echo $product->id; ?>" class="glyphicon glyphicon-pencil"></a>
 				</td>
 				<td>
-					<a href="/catalog/delete/<?php echo $product->id; ?>" class="glyphicon glyphicon-trash"></a>
+					<a href="/products/delete/<?php echo $product->id; ?>" class="glyphicon glyphicon-trash"></a>
 				</td>
 			</tr>
 		<?php } ?>

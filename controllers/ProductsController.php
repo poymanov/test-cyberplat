@@ -59,4 +59,20 @@ class ProductsController extends Controller
             return $this->render('update', compact('product'));
 		}
 	}
+
+	public function actionDelete($id) {
+
+		// Находим по id товар
+		$product = Products::findOne($id);
+
+		// Если товар найден
+		if ($product !== null) {
+			
+			// Удаляем товар
+			$product->delete();
+		}
+
+		// Возвращаемся обратно на страницу управления товарами
+		$this->redirect(Yii::$app->request->referrer);
+	}
 }
