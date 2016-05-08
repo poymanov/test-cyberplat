@@ -45,6 +45,7 @@ $config = [
             'rules' => [
                 'about' => 'site/about',
                 'catalog/<id:\d+>' => 'catalog/detail',
+                'catalog/delete/<id>' => 'catalog/delete',
             ],
         ],
         

@@ -24,9 +24,9 @@ $this->title = 'Управление категориями';
 			<tr>
 				<td><?php echo $category->id; ?></td>
 				<td><?php echo $category->name; ?></td>
-				<td><?php echo $category->getCategoryName(1); ?></td>
+				<td><?php echo $category->getCategoryName(); ?></td>
 				<td></td>
-				<td></td>
+				<td><a href="/catalog/delete/<?php echo $category->id; ?>" class="glyphicon glyphicon-trash"></a></td>
 			</tr>
 		<?php } ?>
 	</table>	

@@ -15,6 +15,11 @@ class CatalogController extends Controller
 		// Данные по текущей категории
 		$category = Catalog::findOne($id);
 
+		// Если категория не найдена, возвращаемся на главную страницу
+		if($category === null) {
+			$this->redirect(Yii::$app->request->referrer);
+		}
+
 		// Данные по подкатегориям категории
 		$subcategories = Catalog::find()
 						->where(['parent_id' => $id])
@@ -62,5 +67,31 @@ class CatalogController extends Controller
 	public function actionIndex() {
 		$categories = Catalog::find()->all();
 		return $this->render('index',compact('categories'));
+	}
+
+	public function actionDelete($id) {
+
+		// Находим по id категорию
+		$category = Catalog::findOne($id);
+
+		// Если категория найдена
+		if ($category !== null) {
+			
+			// Удаляем категорию
+			$category->delete();
+
+			// Очищаем parent_id у дочерних категорий
+			$childrens = Catalog::find()
+					->where(['parent_id' => $id])
+					->all();
+
+			foreach ($childrens as $children) {
+				$children->parent_id = "";
+				$children->save();
+			}
+		}
+
+		// Возвращаемся обратно на страницу управлени категориями
+		$this->redirect(Yii::$app->request->referrer);
 	}
 }
