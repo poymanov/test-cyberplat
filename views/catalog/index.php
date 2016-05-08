@@ -14,7 +14,7 @@ $this->title = 'Управление категориями';
 	</div>	
 	<table class="table table-bordered categories-index">
 		<tr>
-			<th>#</th>
+			<th>id</th>
 			<th>Название</th>
 			<th>Родитель</th>
 			<th>Изменить</th>
