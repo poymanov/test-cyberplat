@@ -1,102 +1,56 @@
-Yii 2 Basic Project Template
-============================
+# Каталог товаров (тестовое задание) #
 
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
+Каталог товаров с неограниченной вложенностью подкатегорий
 
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
+Реализован на php-фреймворке Yii 2.0.8 и БД MySQL
 
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
+## Тестовая площадка ##
 
-DIRECTORY STRUCTURE
--------------------
+[http://test-yii-catalog.poymanov-projects.ru/](http://test-yii-catalog.poymanov-projects.ru/)
 
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
+## Функционал ##
+
+1. Главная страница - отображение главных категорий
+2. Отображение вложенных подкатегорий
+3. Отображение товаров категории и всех её подкатегорий
+4. Добавление/редактирование/удаление категорий и подкатегорий
+5. Добавление/редактирование/удаление товаров
 
 
+## Установка ##
 
-REQUIREMENTS
-------------
+1) Разместить файлы проекта в любой директории
 
-The minimum requirement by this project template that your Web server supports PHP 5.4.0.
+    git clone git@bitbucket.org:poymanov/mentor-blog-laravel.git
+   
+2) Установить [https://getcomposer.org/](Composer) (если еще не установлен)
 
+3) Установить компоненты необходимые компоненты проекта для composer:
 
-INSTALLATION
-------------
+    composer global require "fxp/composer-asset-plugin:~1.1.1"
+    composer update
 
-### Install from an Archive File
+4) Подготовить новую таблицу в своей БД
 
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
+    DROP DATABASE IF EXISTS `yii-catalog`;
+    CREATE DATABASE IF NOT EXISTS `yii-catalog` DEFAULT CHARACTER SET utf8;
+    GRANT ALL PRIVILEGES ON *.* TO yii-catalog@localhost IDENTIFIED BY 'secret';
 
-Set cookie validation key in `config/web.php` file to some random secret string:
+5) Создать файл **config\db.php** и настроить подключение к БД:
 
-```php
-'request' => [
-    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-    'cookieValidationKey' => '<secret random string goes here>',
-],
-```
+    <?php
+    return [
+     'class' => 'yii\db\Connection',
+     'dsn' => 'mysql:host=localhost;dbname=yii-catalog',
+     'username' => 'root',
+     'password' => 'root',
+     'charset' => 'utf8',
+    ];
 
-You can then access the application through the following URL:
+4) Запустить миграции для БД:
 
-~~~
-http://localhost/basic/web/
-~~~
+    php yii migrate
 
+## Использование ##
 
-### Install via Composer
-
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
-
-You can then install this project template using the following command:
-
-~~~
-php composer.phar global require "fxp/composer-asset-plugin:~1.1.1"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
-~~~
-
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
-
-~~~
-http://localhost/basic/web/
-~~~
-
-
-CONFIGURATION
--------------
-
-### Database
-
-Edit the file `config/db.php` with real data, for example:
-
-```php
-return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
-];
-```
-
-**NOTES:**
-- Yii won't create the database for you, this has to be done manually before you can access it.
-- Check and edit the other files in the `config/` directory to customize your application as required.
-- Refer to the README in the `tests` directory for information specific to basic application tests.
+После установка проекта он сразу готов к использованию
