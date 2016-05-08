@@ -39,7 +39,7 @@ class ProductsController extends Controller
 
 		// Если такого товара не найдено, редирект на предыдущую страницу
 		if ($product === null) {
-			$this->redirect(Yii::$app->request->referrer);
+			throw new \yii\web\HttpException('404','Товар отсутствует. Изменение невозможно.');
 		}
 		
 		if($product->load(Yii::$app->request->post()) && $product->validate()) {
@@ -65,9 +65,12 @@ class ProductsController extends Controller
 		// Находим по id товар
 		$product = Products::findOne($id);
 
-		// Если товар найден
-		if ($product !== null) {
-			
+		// Если товар не найден, выдаем ошибку 404
+		if ($product === null) {
+
+			throw new \yii\web\HttpException('404','Товар отсутствует. Удаление невозможно.');
+
+		} else {
 			// Удаляем товар
 			$product->delete();
 		}
