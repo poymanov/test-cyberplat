@@ -58,4 +58,9 @@ class CatalogController extends Controller
             return $this->render('new', compact('category'));
 		}
 	}
+
+	public function actionIndex() {
+		$categories = Catalog::find()->all();
+		return $this->render('index',compact('categories'));
+	}
 }

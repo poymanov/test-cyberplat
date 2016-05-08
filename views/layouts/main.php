@@ -36,10 +36,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Добавить категорию', 'url' => ['/catalog/new']],
-            ['label' => 'Редактировать категории', 'url' => ['/site/about']],
-            ['label' => 'Добавить товар', 'url' => ['/site/about']],
-            ['label' => 'Редактировать товары', 'url' => ['/site/about']],
+            ['label' => 'Управление категориями', 'url' => ['/catalog']],
+            ['label' => 'Управление товарами', 'url' => ['/site/about']]
         ],
     ]);
     NavBar::end();
